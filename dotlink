@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+# where we are keeping our dotfiles
+dotfiles=$(cd -P -- "$(dirname -- "$0")" && printf "%s\n" "$(pwd -P)")
+
+# these are not dotfiles; don't create symlinks
+notdots=(dotlink README.md)
+
+# main
+
+printf "[-] Installing dotfiles from '%s' to '%s'\n" "$dotfiles" "$HOME"
+
+for file in "$dotfiles"/* ; do
+    filename=$(basename -- "$file")
+    if [[ "${notdots[(r)$filename]}" == "$filename" ]] ; then ;
+        # ignore this file
+        continue
+    fi
+
+    dest="$HOME/.$filename"
+
+    if [ -f "$dest" ] ; then ;
+        backup=$(printf "%s.%s.bak" "$dest" "$(date +%Y%m%dT%H%M%S)")
+        printf "[-] Backing up .%s to %s\n" "$filename" "$backup"
+        cp -p "$dest" "$backup"
+    fi
+
+    printf "[-] Creating symlink '%s' to '%s'\n" "$dest" "$file"
+
+    ln -sv "$file" "$dest"
+done
+
+exit 0

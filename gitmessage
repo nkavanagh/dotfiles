@@ -1,0 +1,15 @@
+
+
+# First line should be a single sentence summarizing the change.
+# 
+# Leave a blank line between the summary sentence and a longer description.
+# The longer description should include:
+# 
+# * Why you are making this change
+# * How the change works, i.e. what it does differently after the change
+# * Any problems, immediate or potential, with this change
+# * If the change is associated with a bug, issue, or ticket, include the #
+#
+# Take your time and write a helpful commit message. This is not something 
+# that you hammer out in 30 seconds right before you deploy something, this is 
+# part of the process of writing quality applications.
