@@ -1,0 +1,10 @@
+# straces processes with a name matching the first argue to pstrace
+# note: OS X does not ship with strace
+pstrace() {
+  if [[ $# > 0 ]]; then
+    ps auxw | \
+    grep "$1" | \
+    awk '{print"-p " $$2}' | \
+    xargs strace > "strace.$1.log" 2>&1
+  fi
+}
