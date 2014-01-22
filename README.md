@@ -26,3 +26,5 @@ existing dotfiles, they'll be backed up first.
 ```zsh
 $ dotfiles/dotlink
 ```
+
+The vim color scheme I use is [Solarized](http://ethanschoonover.com/solarized).
