@@ -19,7 +19,12 @@ for file in "$dotfiles"/* ; do
 
     dest="$HOME/.$filename"
 
-    if [ -f "$dest" ] ; then ;
+    if [[ -h "$dest" ]] ; then ;
+        # if it's a symlink, just remove it
+        printf "[-] Removing existing '.%s' symlink\n" "$filename"
+        rm "$dest"
+    elif [[ -f "$dest" ]] ; then ;
+        # if it exists, back it up
         backup=$(printf "%s.%s.bak" "$dest" "$(date +%Y%m%dT%H%M%S)")
         printf "[-] Backing up .%s to %s\n" "$filename" "$backup"
         cp -p "$dest" "$backup"
@@ -27,7 +32,14 @@ for file in "$dotfiles"/* ; do
 
     printf "[-] Creating symlink '%s' to '%s'\n" "$dest" "$file"
 
-    ln -sv "$file" "$dest"
+    ln -s "$file" "$dest"
 done
+
+# special steps
+
+if [[ -f "$HOME/.gitmessage" ]] ; then ;
+    printf "[-] Using '.gitmessage' as default git commit message\n"
+    git config --global commit.template $HOME/.gitmessage
+fi
 
 exit 0
