@@ -99,14 +99,15 @@ let g:html_indent_tags = 'li\|p'
 set splitbelow
 set splitright
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" Tab movement
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
+
+" pymode
+let g:pymode_folding = 0
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

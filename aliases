@@ -13,5 +13,8 @@ alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+# Python
+alias vba='source venv/bin/activate'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
