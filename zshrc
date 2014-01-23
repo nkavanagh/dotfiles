@@ -39,6 +39,9 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
+bindkey "^K" kill-line
+bindkey "^]" emacs-forward-word
+bindkey "^[" backward-word
 
 # use vim as the visual editor
 export VISUAL="mvim -f"
