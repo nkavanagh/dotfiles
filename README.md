@@ -27,4 +27,11 @@ existing dotfiles, they'll be backed up first.
 $ dotfiles/dotlink
 ```
 
+Resources
+---------
+
+I'm using [MacVim](https://code.google.com/p/macvim/).
+
 The vim color scheme I use is [Solarized](http://ethanschoonover.com/solarized).
+
+I use the [python-mode](https://github.com/klen/python-mode) vim plugin to keep me honest.
