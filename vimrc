@@ -60,9 +60,12 @@ set list listchars=tab:»·,trail:·
 
 " Color scheme
 syntax enable
+colorscheme solarized
 if has('gui_running')
     set background=light
-    colorscheme solarized
+else
+    let g:solarized_termcolors=256
+    set background=dark
 endif
 
 " Numbers
