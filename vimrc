@@ -60,11 +60,9 @@ set list listchars=tab:»·,trail:·
 
 " Color scheme
 syntax enable
-colorscheme solarized
 if has('gui_running')
     set background=light
-else
-    set background=dark
+    colorscheme solarized
 endif
 
 " Numbers
