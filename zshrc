@@ -45,7 +45,10 @@ bindkey "^[[1;5D" backward-word
 bindkey "^[d" kill-word
 
 # use vim as the visual editor
-export VISUAL="mvim -f"
+export VISUAL="vim"
+if [[ -f "/usr/local/bin/mvim" ]]; then ;
+    export VISUAL="mvim -f"
+fi
 export EDITOR="$VISUAL"
 
 # path
