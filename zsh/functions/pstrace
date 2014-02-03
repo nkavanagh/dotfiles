@@ -6,7 +6,7 @@ pstrace() {
     elif [[ $# > 0 ]]; then
         ps auxw | \
         grep "$1" | \
-        awk '{print"-p " $$2}' | \
+        awk '{print "-p " $2}' | \
         xargs strace > "strace.$1.log" 2>&1
     fi
 }
