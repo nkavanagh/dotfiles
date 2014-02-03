@@ -4,6 +4,7 @@ pstrace() {
     if [[ $(which strace) == 'strace not found' ]]; then
         print "No strace on this platform\n"
     elif [[ $# > 0 ]]; then
+        sudo \
         ps auxw | \
         grep "$1" | \
         awk '{print "-p " $2}' | \
