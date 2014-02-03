@@ -1,3 +1,5 @@
+scriptencoding utf-8
+set encoding=utf-8
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nocompatible  " Use Vim settings, rather then Vi settings
