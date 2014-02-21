@@ -47,9 +47,12 @@ bindkey "^[d" kill-word
 # use vim as the visual editor
 export VISUAL="vim"
 if [[ -f "/usr/local/bin/mvim" ]]; then ;
-    export VISUAL="mvim -f"
+    export VISUAL="mvim -g"
 fi
 export EDITOR="$VISUAL"
+if [[ -f "/usr/local/bin/mvim" ]]; then ;
+    export EDITOR="mvim -f"
+fi
 
 # path
 if [[ -d "/usr/local/AWS/eb/macosx/python2.7" ]] ; then ;
