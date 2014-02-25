@@ -53,6 +53,7 @@ export EDITOR="$VISUAL"
 if [[ -f "/usr/local/bin/mvim" ]]; then ;
     export EDITOR="mvim -f"
 fi
+export GIT_EDITOR="$EDITOR"
 
 # path
 if [[ -d "/usr/local/AWS/eb/macosx/python2.7" ]] ; then ;

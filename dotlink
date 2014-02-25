@@ -27,7 +27,7 @@ for file in "$dotfiles"/* ; do
         # if it exists, back it up
         backup=$(printf "%s.%s.bak" "$dest" "$(date +%Y%m%dT%H%M%S)")
         printf "[-] Backing up .%s to %s\n" "$filename" "$backup"
-        cp -p "$dest" "$backup"
+        mv "$dest" "$backup"
     fi
 
     printf "[-] Creating symlink '%s' to '%s'\n" "$dest" "$file"
