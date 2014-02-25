@@ -19,3 +19,11 @@ setopt promptsubst
 # prompt
 export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
 
+# settings for .gitconfig, but can be useful elsewhere
+export _EMAIL="niall@kst.com"
+if [ -f "$HOME/.bu_machine" ] ; then
+    export _EMAIL="ntk@bu.edu"
+fi
+
+export _NAME="Niall Kavanagh"
+export _CREDENTIAL_HELPER="osxkeychain"
