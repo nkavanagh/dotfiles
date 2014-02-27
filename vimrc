@@ -90,7 +90,7 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
-# ahhh, ESC relief
+" ahhh, ESC relief
 inoremap jk <ESC>
 
 " Switch between the last two files
