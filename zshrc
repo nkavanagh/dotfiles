@@ -55,9 +55,7 @@ fi
 
 export EDITOR="$VISUAL"
 
-if [[ -f "/usr/local/bin/atom" ]]; then ;
-    export EDITOR="atom -w"
-elif [[ -f "/usr/local/bin/mvim" ]]; then ;
+if [[ -f "/usr/local/bin/mvim" ]]; then ;
     export EDITOR="mvim -f"
 fi
 export GIT_EDITOR="$EDITOR"
