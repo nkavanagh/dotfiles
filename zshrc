@@ -44,13 +44,20 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^[d" kill-word
 
-# use vim as the visual editor
+# use atom, then vim, as the visual editor
 export VISUAL="vim"
-if [[ -f "/usr/local/bin/mvim" ]]; then ;
+
+if [[ -f "/usr/local/bin/atom" ]]; then ;
+    export VISUAL="atom"
+elif [[ -f "/usr/local/bin/mvim" ]]; then ;
     export VISUAL="mvim -g"
 fi
+
 export EDITOR="$VISUAL"
-if [[ -f "/usr/local/bin/mvim" ]]; then ;
+
+if [[ -f "/usr/local/bin/atom" ]]; then ;
+    export EDITOR="atom -w"
+elif [[ -f "/usr/local/bin/mvim" ]]; then ;
     export EDITOR="mvim -f"
 fi
 export GIT_EDITOR="$EDITOR"
