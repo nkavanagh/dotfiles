@@ -47,9 +47,9 @@ bindkey "^[d" kill-word
 # use atom, then vim, as the visual editor
 export VISUAL="vim"
 
-if [[ -f "/usr/local/bin/atom" ]]; then ;
-    export VISUAL="atom"
-elif [[ -f "/usr/local/bin/mvim" ]]; then ;
+#if [[ -f "/usr/local/bin/atom" ]]; then ;
+#    export VISUAL="atom"
+if [[ -f "/usr/local/bin/mvim" ]]; then ;
     export VISUAL="mvim -g"
 fi
 
@@ -58,7 +58,9 @@ export EDITOR="$VISUAL"
 if [[ -f "/usr/local/bin/mvim" ]]; then ;
     export EDITOR="mvim -f"
 fi
+
 export GIT_EDITOR="$EDITOR"
+export SVN_EDITOR="$GIT_EDITOR"
 
 # path
 if [[ -d "/usr/local/AWS/eb/macosx/python2.7" ]] ; then ;
