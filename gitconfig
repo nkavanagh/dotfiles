@@ -1,8 +1,8 @@
 [user]
-    name = $_NAME
-    email = $_EMAIL
+    name = Niall Kavanagh
+    email = ntk@bu.edu
 [credential]
-    helper = $_CREDENTIAL_HELPER
+    helper = osxkeychain
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
