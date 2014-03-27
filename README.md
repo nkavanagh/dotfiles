@@ -32,6 +32,6 @@ Resources
 
 I'm using [MacVim](https://code.google.com/p/macvim/).
 
-The vim color scheme I use is [Solarized](http://ethanschoonover.com/solarized).
-
-I use the [python-mode](https://github.com/klen/python-mode) vim plugin to keep me honest.
+- [Solarized](http://ethanschoonover.com/solarized)
+- [python-mode](https://github.com/klen/python-mode) vim plugin
+- [PHP QA Tools for Vim](https://github.com/joonty/vim-phpqa)
