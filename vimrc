@@ -47,6 +47,10 @@ augroup vimrcEx
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+  " Generate tags
+  autocmd BufWritePost *.c,*.cpp,*.h,*.php silent! !ctags &
+  autocmd BufWritePost *.py silent! !ptags.py &
 augroup END
 
 " Pythonic
