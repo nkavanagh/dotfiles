@@ -1,7 +1,7 @@
 topreqs() {
-  if [[ $# > 0 ]]; then
-      awk '{print $$7}' "$1" | cut -d '/' -f 2 | sort | uniq -c | sort -n
-  else
-      awk '{print $$7}' "/var/log/httpd/access_log" | cut -d '/' -f 2 | sort | uniq -c | sort -n
-  fi
+    if [[ $# > 0 ]]; then
+        cat $1 | awk '{print $7}' | cut -d '/' -f 2 | sort | uniq -c | sort -n
+    else
+        print "Usage: topreqs <glob>"
+    fi
 }
