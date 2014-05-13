@@ -1,6 +1,7 @@
 # no arguments displays your current token
 # first argument is the ~/.aws/token file to source
 # --clear removes active token
+# --ls lists tokens
 awskey() {
     AWS_HOME="$HOME/.aws"
 
@@ -16,13 +17,19 @@ awskey() {
 
             printf "AWS_ACCESS_KEY_ID for %s is '%s'\n" $aws_name $AWS_ACCESS_KEY_ID
         else
-            print "No AWS_ACCESS_KEY_ID is set. Use awskey <name> to set."
+            print "No AWS_ACCESS_KEY_ID is set."
+            print "$ awskey <name>  # to set env vars for a key"
+            print "$ awskey --clear # to clear env vars"
+            print "$ awskey --ls    # to list available keys"
         fi
     elif [[ $1 == "--clear" ]]; then
         unset AWS_ACCESS_KEY_ID
         unset AWS_SECRET_ACCESS_KEY_ID
         unset AWS_CREDENTIAL_FILE
         print "Cleared AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_CREDENTIAL_FILE."
+    elif [[ $1 == "--ls" ]]; then
+        ls -1 "$AWS_HOME" | grep -v ".credentials"
+        print "$ awskey <name>  # to set env vars for a key"
     else
         credentials="$AWS_HOME/$1"
 
@@ -31,8 +38,13 @@ awskey() {
             printf "AWS_ACCESS_KEY_ID for %s is '%s'\n" $1 $AWS_ACCESS_KEY_ID
 
             credentials_file="$credentials.credentials"
-            export AWS_CREDENTIAL_FILE="$credentials_file"
-            printf "AWS_CREDENTIAL_FILE set to '%s'\n" $credentials_file
+            
+            if [[ -f "$credentials_file" ]]; then
+                export AWS_CREDENTIAL_FILE="$credentials_file"
+                printf "AWS_CREDENTIAL_FILE set to '%s'\n" $credentials_file
+            else
+                printf "'%s' not found; AWS_CREDENTIAL_FILE not set.\n" $credentials_file
+            fi
         else
             printf "Could not find credentials: %s\n" $credentials
         fi
