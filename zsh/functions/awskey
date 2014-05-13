@@ -1,0 +1,35 @@
+# no arguments displays your current token
+# first argument is the ~/.aws/token file to source
+# --clear removes active token
+awskey() {
+    AWS_HOME="$HOME/.aws"
+
+    if [[ $# == 0 ]]; then
+        if [ -n "${AWS_ACCESS_KEY_ID:+x}" ] ; then
+            aws_name="<unknown>"
+
+            aws_creds=$(grep -l $AWS_ACCESS_KEY_ID $AWS_HOME/* | head -1)
+
+            if [[ -n $aws_creds ]]; then
+                aws_name=$(basename $aws_creds)
+            fi
+
+            printf "AWS_ACCESS_KEY_ID for %s is '%s'\n" $aws_name $AWS_ACCESS_KEY_ID
+        else
+            print "No AWS_ACCESS_KEY_ID is set. Use awskey <name> to set."
+        fi
+    elif [[ $1 == "--clear" ]]; then
+        unset AWS_ACCESS_KEY_ID
+        unset AWS_SECRET_ACCESS_KEY_ID
+        print "Cleared AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY."
+    else
+        credentials="$AWS_HOME/$1"
+
+        if [[ -f "$credentials" ]]; then
+            source $credentials
+            printf "AWS_ACCESS_KEY_ID for %s is '%s'\n" $1 $AWS_ACCESS_KEY_ID
+        else
+            printf "Could not find credentials: %s\n" $credentials
+        fi
+    fi
+}

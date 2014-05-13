@@ -67,9 +67,6 @@ if [[ -d "/usr/local/AWS/eb/macosx/python2.7" ]] ; then ;
     export PATH="$PATH:/usr/local/AWS/eb/macosx/python2.7"
 fi
 
-# AWS
-export AWS_CREDENTIAL_FILE="$HOME/.aws/credentials"
-
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
