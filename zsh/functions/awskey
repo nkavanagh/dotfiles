@@ -21,13 +21,18 @@ awskey() {
     elif [[ $1 == "--clear" ]]; then
         unset AWS_ACCESS_KEY_ID
         unset AWS_SECRET_ACCESS_KEY_ID
-        print "Cleared AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY."
+        unset AWS_CREDENTIAL_FILE
+        print "Cleared AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_CREDENTIAL_FILE."
     else
         credentials="$AWS_HOME/$1"
 
         if [[ -f "$credentials" ]]; then
             source $credentials
             printf "AWS_ACCESS_KEY_ID for %s is '%s'\n" $1 $AWS_ACCESS_KEY_ID
+
+            credentials_file="$credentials.credentials"
+            export AWS_CREDENTIAL_FILE="$credentials_file"
+            printf "AWS_CREDENTIAL_FILE set to '%s'\n" $credentials_file
         else
             printf "Could not find credentials: %s\n" $credentials
         fi
