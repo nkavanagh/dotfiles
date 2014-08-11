@@ -41,6 +41,7 @@ augroup vimrcEx
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.handlebars set filetype=html
 
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
