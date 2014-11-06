@@ -34,4 +34,3 @@ I'm using [MacVim](https://code.google.com/p/macvim/).
 
 - [Solarized](http://ethanschoonover.com/solarized)
 - [python-mode](https://github.com/klen/python-mode) vim plugin
-- [PHP QA Tools for Vim](https://github.com/joonty/vim-phpqa)
