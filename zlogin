@@ -17,12 +17,12 @@ export CLICOLOR=1
 setopt promptsubst
 
 # prompt
-export PS1='$(aws_prompt_info)$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
+export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
 
 # settings for .gitconfig, but can be useful elsewhere
 export _EMAIL="niall@kst.com"
-if [ -f "$HOME/.bu_machine" ] ; then
-    export _EMAIL="ntk@bu.edu"
+if [ -f "$HOME/.rest_machine" ] ; then
+    export _EMAIL="ntk@restdevices.com"
 fi
 
 export _NAME="Niall Kavanagh"
