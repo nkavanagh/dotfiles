@@ -6,18 +6,6 @@ git_prompt_info() {
   fi
 }
 
-# adds current AWS credential name in red
-aws_prompt_info() {
-    AWS_HOME="$HOME/.aws"
-    if [ -n "${AWS_ACCESS_KEY_ID:+x}" ] ; then
-        aws_creds=$(grep -l $AWS_ACCESS_KEY_ID $AWS_HOME/* | head -1)
-        if [[ -n $aws_creds ]]; then
-            awsid=$(basename $aws_creds)
-            echo "[%{$fg_bold[red]%}${awsid}%{$reset_color%}]"
-        fi
-    fi
-}
-
 # makes color constants available
 autoload -U colors
 colors
