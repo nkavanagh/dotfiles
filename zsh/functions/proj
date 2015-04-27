@@ -1,0 +1,18 @@
+# No arguments: Goes to last project dir modified
+# With arguments: cd to the project dir
+
+if [ -z "$PROJECT_DIR" ]; then;
+  PROJECT_DIR="$HOME/Projects"
+fi
+
+proj() {
+  if [[ $# > 0 ]]; then
+    cd "$PROJECT_DIR/$@"
+  else
+    LAST_PROJECT=$(ls -1 -tr $PROJECT_DIR | tail -1)
+    cd "$PROJECT_DIR/$LAST_PROJECT"
+  fi
+}
+
+# Complete g like git
+compdef '_files -W $PROJECT_DIR' proj
