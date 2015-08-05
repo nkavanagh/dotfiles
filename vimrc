@@ -1,16 +1,15 @@
-scriptencoding utf-8
+scriptencoding utf-8 
 set encoding=utf-8
 
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nocompatible  " Use Vim settings, rather then Vi settings
-set nobackup
-set nowritebackup
+set backspace=2   " Backspace deletes like most programs in insert mode set
+set nocompatible  " Use Vim settings, rather then Vi settings set nobackup 
+set nowritebackup 
 set noswapfile    
-set history=50
-set ruler         " show the cursor position all the time
+set history=50 
+set ruler         " show the cursor position all the time 
 set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
+set incsearch     " do incremental searching 
+set laststatus=2  " Always display the status line 
 set autowrite     " Automatically :write before running commands
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -100,6 +99,10 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " ahhh, ESC relief
 inoremap jk <ESC>
 
+" special quotes
+inoremap '' ’
+inoremap "" ”
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -130,3 +133,14 @@ let g:pymode_folding = 0
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1 
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1 
+let g:syntastic_check_on_wq = 0 
+let g:syntastic_javascript_checkers = ['jshint']
