@@ -5,7 +5,8 @@
     helper = osxkeychain
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    pbxmerge = mergetool --tool=mergepbx
 [push]
     default = simple
 [commit]
-    template = ~/.gitmessage
+	template = /Users/ntk/.gitmessage
